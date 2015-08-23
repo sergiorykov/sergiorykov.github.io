@@ -18,7 +18,7 @@ show_social_icons:  false
 
 # Disqus post comments
 # (leave blank to disable Disqus)
-disqus_shortname: sergiorykov
+disqus_shortname: sergiorykovblog
 
 # Social icons
 github_username: sergiorykov
