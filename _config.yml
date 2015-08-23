@@ -21,11 +21,11 @@ show_social_icons:  false
 disqus_shortname:
 
 # Social icons
-github_username:sergiorykov
+github_username: sergiorykov
 bitbucket_username:
-stackoverflow_id:323979
-twitter_username:wilyrussian
-google_plus_id:Sergio.On.Social@gmail.com
+stackoverflow_id: 323979
+twitter_username: wilyrussian
+google_plus_id: Sergio.On.Social@gmail.com
 linkedin_username:
 angellist_username:
 medium_id:
