@@ -11,12 +11,14 @@ published: true
 Recently our team've faced with pretty _interesting_ API for payment service [Platron](https://platron.ru). To make sure that integration scenario of simple one-time payment will work in production we had to implement sample http server which will receive callback with the result of client payment and will be publicly available to Platron server. 
 
 Full scenario under the test looks like this:
+
 - Client calls server and says he wants to pay let's say 5 RUB (it processess requests in rubles) for order №1
 - Server calls Platron API where it specifies all parameters including amount of money to receive in so called `InitPayment` request. Platron returns redirect url to complete payment. Server returns that url to user (web client).
 - Browser redirects client to that url. User processes payment using prefferred payment system. Platron accepts money transaction and sends request to special url(`ResultUrl`).
 - Server specified in `ResultUrl` accepts request from Platron, authenticates it, and sends a valid signed response to complete payment by Platron (it can be _error_, _ok_, _reject_). We were not interested in wasting company's money so we choose to _reject_ it :).
 
 So there're two parts in equation: 
+
 - http server to host simple callback request processing server,
 - proxy http server's endpoint or publish it thru tunnel service to make it available externally. 
 
@@ -25,6 +27,7 @@ Actually there is a final part - to combine it all together, but it'll be a bit 
 [First one](https://github.com/sergiorykov/Platron.Client/tree/master/Source/Platron.Client.TestKit/Emulators/Nancy) - is as easy as creating first [NancyFx](http://nancyfx.org) module:
 
 ```csharp
+
 public sealed class PlatronModule : NancyModule
 {
     private readonly PlatronClient _platronClient;
@@ -62,11 +65,13 @@ public sealed class PlatronModule : NancyModule
                 };
     }
 }
+
 ``` 
 
 Followed by default startup 
 
 ```csharp
+
 public sealed class Startup
 {
     public void Configuration(IAppBuilder app)
@@ -74,6 +79,7 @@ public sealed class Startup
           app.UseNancy();
     }
 }
+
 ```
 
 and integrating thru [Nancy.Owin](https://www.nuget.org/packages/Nancy.Owin) with OWIN host [Microsoft.Owin.Host.HttpListener](https://www.nuget.org/packages/Microsoft.Owin.Host.HttpListener).
@@ -83,6 +89,7 @@ Next question is how to make it available externally. It's direct job of tunnell
 You will need to [download ngrok](https://ngrok.com/download) and make it available in PATH (including all compatible CI agent machines too!). Or you can write little script to install it on premise (like chocolate does). Everything else will  be done automagically by `CallbackServerEmulator`:
 
 ```csharp
+
 public sealed class CallbackServerEmulator : IDisposable
 {
     private IDisposable _app;
@@ -113,11 +120,13 @@ public sealed class CallbackServerEmulator : IDisposable
     
     /// Other methods
 }
+
 ```
 
 Full test with mentioned above scenario looks like this:
 
 ```csharp
+
 public sealed class CallbackIntegrationTests : IClassFixture<CallbackServerEmulator>
 {
     private readonly CallbackServerEmulator _server;
@@ -171,8 +180,9 @@ public sealed class CallbackIntegrationTests : IClassFixture<CallbackServerEmula
         request.SendResponse(resultUrlResponse.Content);
     }
 }
+
 ```
 
-It's simple XUnit test. We can easely start server in ctor but we willn't be able to skip the test without starting and stopping emulator itself (ctor in IClassFixture<T> is called everytime).
+It's simple XUnit test. We can easely start server in ctor but we willn't be able to skip the test without starting and stopping emulator itself (ctor in IClassFixture<T> is called everytime). So it had to be started when we attaching context.
 
 All sources has been published as a part of [Platron.Client](https://github.com/sergiorykov/Platron.Client). Feel free to use it in your projects :).
