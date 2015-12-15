@@ -4,7 +4,7 @@ title: Integration testing on top of NancyFx and Ngrok tunnel
 date: {}
 summary: "Simple ideas on making hard staff really easy!"
 categories: testing nancyfx ngrok
-published: false
+published: true
 ---
 
 
