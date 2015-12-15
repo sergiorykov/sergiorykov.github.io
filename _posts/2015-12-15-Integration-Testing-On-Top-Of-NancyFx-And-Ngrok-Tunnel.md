@@ -175,4 +175,4 @@ public sealed class CallbackIntegrationTests : IClassFixture<CallbackServerEmula
 
 It's simple XUnit test. We can easely start server in ctor but we willn't be able to skip the test without starting and stopping emulator itself (ctor in IClassFixture<T> is called everytime).
 
-All sources has been published as a part of [Platron.Client](https://github.com/sergiorykov/Platron.Client). Feel free to use it and basic idea in your projects :).
+All sources has been published as a part of [Platron.Client](https://github.com/sergiorykov/Platron.Client). Feel free to use it in your projects :).
