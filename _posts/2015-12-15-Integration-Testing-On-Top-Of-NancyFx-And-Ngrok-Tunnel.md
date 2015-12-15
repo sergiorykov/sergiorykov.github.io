@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Integration testing on top of NancyFx and Ngrok tunnel
-date: 2015-08-24T00:00:00.000Z
+date: 2015-12-15T23:00:01.000Z
 summary: "Simple ideas on making hard staff really easy!"
 categories: testing
 published: true
