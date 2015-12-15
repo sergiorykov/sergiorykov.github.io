@@ -17,8 +17,8 @@ Full scenario under the test looks like this:
 - Server specified in `ResultUrl` accepts request from Platron, authenticates it, and sends a valid signed response to complete payment by Platron (it can be _error_, _ok_, _reject_). We were not interested in wasting company's money so we choose to _reject_ it :).
 
 So there're two parts in equation: 
-- http server to host simple callback server and modify it's behaviour according to scenario requirements,
-- proxy server's endpoint or publish server to make it available externally. 
+- http server to host simple callback request processing server,
+- proxy http server's endpoint or publish it thru tunnel service to make it available externally. 
 
 Actually there is a final part - to combine it all together, but it'll be a bit later.
 
