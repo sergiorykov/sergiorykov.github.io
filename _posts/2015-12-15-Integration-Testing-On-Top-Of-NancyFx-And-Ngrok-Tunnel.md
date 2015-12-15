@@ -11,14 +11,14 @@ published: true
 Recently I've faced with pretty _interesting_ API for payment service [Platron](https://platron.ru). To make sure that integration scenario of simple one-time payment will work in production I had to implement sample http server which will receive callback with the result of client payment and will be publicly available to Platron server. 
 
 Full scenario under the test looks like this:
-* Client calls server and says he wants to pay let's say 5 RUB (it processess requests in rubles) for order №1
-* Server calls Platron API where it specifies all parameters including amount of money to receive in so called `InitPayment` request. Platron returns redirect url to complete payment. Server returns that url to user (web client).
-* Browser redirects client to that url. User processes payment using prefferred payment system. Platron accepts money transaction and sends request to special url(`ResultUrl`).
-* Server specified in `ResultUrl` accepts request from Platron, authenticates it, and sends a valid signed response to complete payment by Platron (it can be _error_, _ok_, _reject_). I'm not interested in wasting company's money so I choose to _reject_ it :).
+- Client calls server and says he wants to pay let's say 5 RUB (it processess requests in rubles) for order №1
+- Server calls Platron API where it specifies all parameters including amount of money to receive in so called `InitPayment` request. Platron returns redirect url to complete payment. Server returns that url to user (web client).
+- Browser redirects client to that url. User processes payment using prefferred payment system. Platron accepts money transaction and sends request to special url(`ResultUrl`).
+- Server specified in `ResultUrl` accepts request from Platron, authenticates it, and sends a valid signed response to complete payment by Platron (it can be _error_, _ok_, _reject_). I'm not interested in wasting company's money so I choose to _reject_ it :).
 
 So there're two parts in equation: 
-* http server to host simple callback server and modify it's behaviour according to scenario requirements,
-* proxy server's endpoint or publish server to make it available externally. 
+- http server to host simple callback server and modify it's behaviour according to scenario requirements,
+- proxy server's endpoint or publish server to make it available externally. 
 
 Actually there is a final part - to combine it all together, but it'll be a bit later.
 
