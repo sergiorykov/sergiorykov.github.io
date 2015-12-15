@@ -23,6 +23,7 @@ So there're two parts in equation:
 Actually there is a final part - to combine it all together, but it'll be a bit later.
 
 [First one](https://github.com/sergiorykov/Platron.Client/tree/master/Source/Platron.Client.TestKit/Emulators/Nancy) - is as easy as creating first [NancyFx](http://nancyfx.org) module:
+
 ```csharp
 public sealed class PlatronModule : NancyModule
 {
@@ -62,7 +63,9 @@ public sealed class PlatronModule : NancyModule
     }
 }
 ``` 
+
 Followed by default startup 
+
 ```csharp
 public sealed class Startup
 {
@@ -72,11 +75,13 @@ public sealed class Startup
     }
 }
 ```
+
 and integrating thru [Nancy.Owin](https://www.nuget.org/packages/Nancy.Owin) with OWIN host [Microsoft.Owin.Host.HttpListener](https://www.nuget.org/packages/Microsoft.Owin.Host.HttpListener).
 
 Next question is how to make it available externally. It's direct job of tunnelling services like https://forwardhq.com, https://ngrok.com or any similar. [We have choosen ngrok](https://github.com/sergiorykov/Platron.Client/tree/master/Source/Platron.Client.TestKit/Emulators/Tunnels) - it has free of charge version tunnelling a single address. It has several little noisy drawbacks (for automation purposes only - it's really awesome service to know and have it in your toolbox): random third-level public domain name (like smth123rndm2.ngrok.com), with a [related question](https://github.com/sergiorykov/Platron.Client/issues/1) how to get it.
 
 You will need to [download ngrok](https://ngrok.com/download) and make it available in PATH (including all compatible CI agent machines too!). Or you can write little script to install it on premise (like chocolate does). Everything else will  be done automagically by `CallbackServerEmulator`:
+
 ```csharp
 public sealed class CallbackServerEmulator : IDisposable
 {
@@ -109,7 +114,9 @@ public sealed class CallbackServerEmulator : IDisposable
     /// Other methods
 }
 ```
+
 Full test with mentioned above scenario looks like this:
+
 ```csharp
 public sealed class CallbackIntegrationTests : IClassFixture<CallbackServerEmulator>
 {
@@ -165,6 +172,7 @@ public sealed class CallbackIntegrationTests : IClassFixture<CallbackServerEmula
     }
 }
 ```
+
 It's simple XUnit test. We can easely start server in ctor but we willn't be able to skip the test without starting and stopping emulator itself (ctor in IClassFixture<T> is called everytime).
 
 All sources has been published as a part of [Platron.Client](https://github.com/sergiorykov/Platron.Client). Feel free to use it and basic idea in your projects :).
