@@ -1,11 +1,12 @@
 ---
 layout: post
 title: Integration testing on top of NancyFx and ngrok tunnel
-date: 2015-12-15T23:00:01.000Z
+date: {}
 summary: "Simple ideas on making hard staff really easy!"
 categories: testing
 published: true
 ---
+
 
 
 Recently our team've faced with pretty _interesting_ API for payment service [Platron](https://platron.ru). To make sure that integration scenario of simple one-time payment will work in production we had to implement sample http server which will receive callback with the result of client payment and will be publicly available to Platron server. 
@@ -27,7 +28,6 @@ Actually there is a final part - to combine it all together, but it'll be a bit 
 [First one](https://github.com/sergiorykov/Platron.Client/tree/master/Source/Platron.Client.TestKit/Emulators/Nancy) - is as easy as creating first [NancyFx](http://nancyfx.org) module:
 
 ```csharp
-
 public sealed class PlatronModule : NancyModule
 {
     private readonly PlatronClient _platronClient;
@@ -65,13 +65,11 @@ public sealed class PlatronModule : NancyModule
                 };
     }
 }
-
 ``` 
 
 Followed by default startup 
 
 ```csharp
-
 public sealed class Startup
 {
     public void Configuration(IAppBuilder app)
@@ -79,7 +77,6 @@ public sealed class Startup
           app.UseNancy();
     }
 }
-
 ```
 
 and integrating thru [Nancy.Owin](https://www.nuget.org/packages/Nancy.Owin) with OWIN host [Microsoft.Owin.Host.HttpListener](https://www.nuget.org/packages/Microsoft.Owin.Host.HttpListener).
