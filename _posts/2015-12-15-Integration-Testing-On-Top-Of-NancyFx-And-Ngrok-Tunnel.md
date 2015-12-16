@@ -89,7 +89,6 @@ Next question is how to make it available externally. It's direct job of tunnell
 You will need to [download ngrok](https://ngrok.com/download) and make it available in PATH (including all compatible CI agent machines too!). Or you can write little script to install it on premise (like chocolate does). Everything else will  be done automagically by `CallbackServerEmulator`:
 
 ```csharp
-
 public sealed class CallbackServerEmulator : IDisposable
 {
     private IDisposable _app;
@@ -120,13 +119,11 @@ public sealed class CallbackServerEmulator : IDisposable
     
     /// Other methods
 }
-
 ```
 
 Full test with mentioned above scenario looks like this:
 
 ```csharp
-
 public sealed class CallbackIntegrationTests : IClassFixture<CallbackServerEmulator>
 {
     private readonly CallbackServerEmulator _server;
@@ -180,7 +177,6 @@ public sealed class CallbackIntegrationTests : IClassFixture<CallbackServerEmula
         request.SendResponse(resultUrlResponse.Content);
     }
 }
-
 ```
 
 It's simple XUnit test. We can easely start server in ctor but we willn't be able to skip the test without starting and stopping emulator itself (ctor in IClassFixture<T> is called everytime). So it had to be started when we attaching context.
