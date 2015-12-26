@@ -4,4 +4,5 @@ title: About
 permalink: /about/
 ---
 
-This page is supposed to be about me.
+This page is left intentionally blank.
+.
