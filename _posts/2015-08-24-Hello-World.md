@@ -10,7 +10,8 @@ published: true
 
 
 That's it! yeah!
-=====1
+
+1
 
 ```csharp
 public sealed class Startup
@@ -22,7 +23,8 @@ public sealed class Startup
 }
 ```
 
-=======2
+2
+
 
 ```csharp
 
@@ -36,7 +38,8 @@ public sealed class Startup
 
 ```
 
-=======3
+3
+
 
 ```csharp
     public sealed class Startup
@@ -48,7 +51,7 @@ public sealed class Startup
     }
 ```
 
-=====4
+4
 
 
 ```csharp
@@ -63,7 +66,7 @@ public sealed class Startup
     
 ```
 
-====5
+5
 
 ```
 
