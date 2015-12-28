@@ -1,5 +1,5 @@
 # Site settings
-title:       Sergio Rykov
+title:       Sergio Rykov - Blog
 email:       Sergio.On.Social@gmail.com
 author:      Sergio Rykov
 description: "Thougts on tech, development, life hacks, being a father"
@@ -48,6 +48,10 @@ share_stumbleupon: false
 share_hackernews: false
 
 # Build settings
+
+redcarpet:
+  extensions: ["tables", "autolink", "strikethrough", "space_after_headers", "with_toc_data", "fenced_code_blocks"]
+  
 markdown:     kramdown
 redcarpet:
   extensions: ['smart', 'tables', 'with_toc_data']
@@ -57,4 +61,8 @@ sass:
   compressed: true
   
 kramdown:
+  auto_ids: true
   input: GFM
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  use_coderay: false
