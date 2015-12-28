@@ -11,5 +11,5 @@ Actyally all you need to do is to choose base theme (I've chosen [pixyll](https:
 
 That's it! 
 
-P.S.: integration with discus are pretty welcome!
+P.S.: integration with [disqus](https://disqus.com/home/forums/sergiorykovblog/) are pretty welcome!
 
