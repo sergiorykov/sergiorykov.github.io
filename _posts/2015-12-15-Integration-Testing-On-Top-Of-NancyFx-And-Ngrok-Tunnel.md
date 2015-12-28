@@ -27,7 +27,7 @@ Actually there is a final part - to combine it all together, but it'll be a bit 
 
 [First one](https://github.com/sergiorykov/Platron.Client/tree/master/Source/Platron.Client.TestKit/Emulators/Nancy) - is as easy as creating first [NancyFx](http://nancyfx.org) module:
 
-```csharp
+{% highlight csharp %}
 public sealed class PlatronModule : NancyModule
 {
     private readonly PlatronClient _platronClient;
@@ -65,8 +65,7 @@ public sealed class PlatronModule : NancyModule
                 };
     }
 }
-
-``` 
+{% endhighlight %}
 
 Followed by default startup 
 
