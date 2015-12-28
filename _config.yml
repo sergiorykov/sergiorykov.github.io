@@ -53,6 +53,7 @@ redcarpet:
   extensions: ["tables", "autolink", "strikethrough", "space_after_headers", "with_toc_data", "fenced_code_blocks"]
   
 markdown:     kramdown
+highlighter: pygments
 redcarpet:
   extensions: ['smart', 'tables', 'with_toc_data']
 permalink:    pretty
