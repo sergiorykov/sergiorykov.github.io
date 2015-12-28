@@ -67,3 +67,7 @@ kramdown:
   toc_levels: 1..6
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   use_coderay: false
+
+# http://jekyllrb.com/docs/permalinks/
+# http://joshualande.com/short-urls-jekyll/
+permalink: "/:title"
