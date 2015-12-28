@@ -2,18 +2,18 @@
 layout: post
 title: Integration testing on top of NancyFx and ngrok tunnel
 date: 2015-12-15T23:00:01.000Z
-summary: "Simple ideas on making hard staff really easy!"
+summary: "We will combine emulation server on NancyFx tunnelled thru ngrok to implement tricky integration test of payment service with callbacks"
 categories: testing
 published: true
 ---
 
 
 
-Recently our team've faced with pretty _interesting_ API for payment service [Platron](https://platron.ru). To make sure that integration scenario of simple one-time payment will work in production we had to implement sample http server which will receive callback with the result of client payment and will be publicly available to Platron server. 
+Recently our team've faced with pretty _interesting_ API for payment service [Platron](https://platron.ru). To make sure that integration scenario of a simple one-time payment will work in production we had to implement sample http server which will receive callback with the result of client payment and will be publicly available to Platron server. 
 
 Full scenario under the test looks like this:
 
-- Client calls server and says he wants to pay let's say 5 RUB (it processess requests in rubles) for order №1
+- Client calls server and says he wants to pay let's say 5 RUB (service processess requests in rubles) for order №1.
 - Server calls Platron API where it specifies all parameters including amount of money to receive in so called `InitPayment` request. Platron returns redirect url to complete payment. Server returns that url to user (web client).
 - Browser redirects client to that url. User processes payment using prefferred payment system. Platron accepts money transaction and sends request to special url(`ResultUrl`).
 - Server specified in `ResultUrl` accepts request from Platron, authenticates it, and sends a valid signed response to complete payment by Platron (it can be _error_, _ok_, _reject_). We were not interested in wasting company's money so we chose to _reject_ it :).
@@ -34,7 +34,7 @@ public sealed class PlatronModule : NancyModule
 
     public PlatronModule(PlatronClient platronClient)
     {
-        // IoC container will make us super-duper happy and gives us a client.
+        // IoC container will make us super-duper happy and will give us a client.
         _platronClient = platronClient;
 
         Get["/platron/result", true] = async (_, ct) =>
