@@ -7,7 +7,9 @@ categories: jekyll pixyll
 published: true
 ---
 
+Actyally all you need to do is to choose base theme (I've chosen [pixyll](https://github.com/johnotander/pixyll)) and fork it.
 
+That's it! 
 
-That's it! yeah!
+P.S.: integration with discus are pretty welcome!
 
