@@ -10,3 +10,7 @@ published:  false
 1. It's not GFM! See [http://ilovesymposia.com/2015/01/04/some-things-i-learned-while-building-a-site-on-github-pages](http://ilovesymposia.com/2015/01/04/some-things-i-learned-while-building-a-site-on-github-pages/).
 
 
+Sources of insights:
+- [http://ilovesymposia.com/2015/01/04/some-things-i-learned-while-building-a-site-on-github-pages](http://ilovesymposia.com/2015/01/04/some-things-i-learned-while-building-a-site-on-github-pages/)
+- [http://loyc.net/2014/blogging-on-github.html](http://loyc.net/2014/blogging-on-github.html)
+
