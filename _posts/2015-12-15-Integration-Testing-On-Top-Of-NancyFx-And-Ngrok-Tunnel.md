@@ -2,7 +2,7 @@
 layout: post
 title: Integration testing on top of NancyFx and ngrok tunnel
 date: 2015-12-15T23:00:01.000Z
-summary: "We will combine emulation server on NancyFx tunnelled thru ngrok to implement tricky integration test of payment service with callbacks"
+summary: "We will combine emulation server on NancyFx tunnelled thru ngrok to implement tricky integration test of payment service with callbacks."
 categories: testing
 published: true
 ---
