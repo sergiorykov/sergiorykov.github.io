@@ -11,9 +11,11 @@ We needed to add logging support to our library [Platron.Client](https://github.
 What we decided not do: invent a new logger. Therefore there is not so much opportunities. Adding one more constraint - don't add nuget dependency - and there is [LibLog](https://github.com/damianh/LibLog) appears. As for me - it's code due of supporting several platforms and adding compile time options is not readable and easily supportable. But it can be seamlessly integrated with several popular loggers, and one more thing to mention - it [was used in IdentityServer](http://leastprivilege.com/2015/10/22/identityserver3-logging-monitoring-using-serilog-and-seq/).
 
 First of install package [LibLog](https://www.nuget.org/packages/LibLog/). It will place single file in `App_Packages\LibLog.4.2\LibLog.cs`. 
+
 ![Installed LibLog]({{ site.url }}/images/liblog/installed.png)
 
 One nice thing is namespace - it was just what doctor ordered:
+
 ![Default namespace of LibLog]({{ site.url }}/images/liblog/namespace.png)
 
 In our case we needed to log only couple of things: request, response, exception details. So all integration took several minutes.
