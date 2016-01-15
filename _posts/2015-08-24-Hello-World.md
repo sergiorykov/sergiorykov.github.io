@@ -13,3 +13,5 @@ That's it!
 
 P.S.: integration with [disqus](https://disqus.com/home/forums/sergiorykovblog/) are pretty welcome!
 
+{% gist parkr/c08ee0f2726fd0e3909d %}
+
