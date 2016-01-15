@@ -71,3 +71,6 @@ kramdown:
 # http://jekyllrb.com/docs/permalinks/
 # http://joshualande.com/short-urls-jekyll/
 permalink: "/:title"
+
+gems:
+  - jekyll-gist
