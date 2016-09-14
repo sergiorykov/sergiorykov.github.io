@@ -1,10 +1,11 @@
 # Site settings
+# DOCUMENTATION https://jekyllrb.com/docs/configuration/
 title:       Sergio Rykov
-email:       Sergio.On.Social@gmail.com
+email:       Sergio.Rykov@gmail.com
 author:      Sergio Rykov
 description: "Thougts on tech, development, life hacks, being a father"
 baseurl:     ""
-url:         "http://sergiorykov.github.io"
+url:         "https://sergiorykov.github.io"
 date_format: "%b %-d, %Y"
 
 # Google services
@@ -46,7 +47,7 @@ github_username: sergiorykov
 bitbucket_username:
 stackoverflow_id: 323979
 twitter_username: wilyrussian
-google_plus_id: Sergio.On.Social@gmail.com
+google_plus_id: 
 linkedin_username:
 angellist_username:
 medium_id:
@@ -58,7 +59,7 @@ flattr_button:
 show_sharing_icons: false
 # Change to 'true' to enable individual icons
 share_facebook: true
-share_twitter: false
+share_twitter: true
 share_googleplus: false
 share_linkedin: false
 share_digg: false
@@ -102,21 +103,20 @@ text:
 
 # Build settings
 
-redcarpet:
-  extensions: ["tables", "autolink", "strikethrough", "space_after_headers", "with_toc_data", "fenced_code_blocks"]
-  
-markdown:     redcarpet
-highlighter: pygments
-redcarpet:
-  extensions: ['smart', 'tables', 'with_toc_data']
+markdown:     kramdown
+highlighter: rouge
 permalink:    pretty
 paginate:     4
 sass:
   compressed: true
-gems:
-  - jekyll-paginate
-  - jekyll-sitemap
-# https://github.com/jekyll/jekyll/issues/2938
+kramdown: 
+  auto_ids: true 
+  input: GFM 
+  toc_levels: 1..6 
+  smart_quotes: lsquo,rsquo,ldquo,rdquo 
+  enable_coderay: false 
+
+  # https://github.com/jekyll/jekyll/issues/2938
 exclude: [vendor]
 
 # http://jekyllrb.com/docs/permalinks/
@@ -125,3 +125,5 @@ permalink: "/:title"
 
 gems:
   - jekyll-gist
+  - jekyll-paginate
+  - jekyll-sitemap
