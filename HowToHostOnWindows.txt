@@ -1,0 +1,13 @@
+host jekyll on windows
+
+1) https://jekyllrb.com/docs/windows/
+2) gem install github-pages
+2) gem install jekyll-paginate
+3) install curl certificate
+	instructions: http://stackoverflow.com/a/28312138/323979
+	              https://gist.github.com/fnichol/867550 (use manual - it will work)
+	discussion: http://stackoverflow.com/questions/4528101/ssl-connect-returned-1-errno-0-state-sslv3-read-server-certificate-b-certificat
+4) gem install wdm
+		
+	
+tea5) jekyll s
