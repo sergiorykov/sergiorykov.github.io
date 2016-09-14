@@ -1,6 +1,7 @@
 host jekyll on windows
 
 1) https://jekyllrb.com/docs/windows/
+1') added C:\Tools\ruby23\bin\ to user's PATH
 2) gem install github-pages
 2) gem install jekyll-paginate
 3) install curl certificate
@@ -10,4 +11,5 @@ host jekyll on windows
 4) gem install wdm
 		
 	
-tea5) jekyll s
+5) jekyll s
+5`) start.cmd (run as admin)
