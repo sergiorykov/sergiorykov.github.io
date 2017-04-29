@@ -1,9 +1,9 @@
-﻿---
-layout: post
-title: Message Based Web Services API on .NET
-date: 2016-11-13T07:00:01.000Z
-summary: "Does it worse for web services API to use message based approach?"
-categories: DDD, REST, API, MessageBased
+---
+layout:     post
+title:      Message Based Web Services API on .NETddd
+date:       2016-11-13
+summary:    Does it worse for web services API to use message based approach?
+categories: DDD REST API MessageBased
 published: false
 ---
 
